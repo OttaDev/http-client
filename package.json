@@ -1,0 +1,58 @@
+{
+  "name": "@ottadev/http-client",
+  "version": "0.0.0",
+  "description": "Simple Promise based HTTP client for browser and node environments.",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "build": "rm -rf ./dist && rollup -c",
+    "lint": "tslint -p ./tslint.json 'src/**/*.ts' 'test/**/*.ts'",
+    "release:major": "changelog -M && git add . && git commit -m 'chore(release): major version release' && npm version major",
+    "release:minor": "changelog -m && git add . && git commit -m 'chore(release): minor version release' && npm version minor",
+    "release:patch": "changelog -p && git add . && git commit -m 'chore(release): patch version release' && npm version patch",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OttaDev/http-client.git"
+  },
+  "keywords": [
+    "http",
+    "rest",
+    "client",
+    "node",
+    "typescript",
+    "request"
+  ],
+  "files": [
+    "dist/**",
+    "CHANGELOG.md",
+    "LICENSE.md",
+    "package-lock.json",
+    "package.json",
+    "README.md"
+  ],
+  "author": "Michael Solati <mkslt04@gmail.com>",
+  "readme": "README.md",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OttaDev/http-client/issues"
+  },
+  "homepage": "https://github.com/OttaDev/http-client#readme",
+  "dependencies": {
+    "querystring": "^0.2.0"
+  },
+  "private": false,
+  "devDependencies": {
+    "@types/node": "^12.7.5",
+    "generate-changelog": "^1.8.0",
+    "rollup": "^1.21.2",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-copier": "^1.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.24.1",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.3"
+  }
+}
