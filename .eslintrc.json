@@ -1,5 +1,9 @@
 {
   "extends": "./node_modules/gts/",
+  "env": {
+    "node": true,
+    "browser": true
+  },
   "rules": {
     "@typescript-eslint/no-namespace": "off"
   }

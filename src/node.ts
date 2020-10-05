@@ -3,11 +3,12 @@ import * as https from 'https';
 import * as querystring from 'querystring';
 
 import {OttaHttpClientTypes} from './definitions';
+import {isHttpsTest, isSuccessTest} from './utils';
 
 export const nodeRequest = (
   request: OttaHttpClientTypes.Request
 ): Promise<OttaHttpClientTypes.Response> => {
-  const isHttps = /^https:\/\//.test(request.url);
+  const isHttps = isHttpsTest(request.url);
 
   return new Promise((resolve, reject) => {
     const req = (isHttps ? https : http).request(
@@ -31,7 +32,7 @@ export const nodeRequest = (
 
           resolve({
             request: {
-              success: res.statusCode && res.statusCode < 400,
+              success: isSuccessTest(res.statusCode),
               ...request,
             },
             response: {
