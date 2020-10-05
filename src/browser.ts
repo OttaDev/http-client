@@ -1,6 +1,6 @@
-import { OttaHttpClientTypes } from './definitions';
+import {OttaHttpClientTypes} from './definitions';
 
-export const browserRequest = (request: OttaHttpClientTypes.Request): Promise<any> => {
+export const browserRequest = (): Promise<OttaHttpClientTypes.Response> => {
   return new Promise((resolve, reject) => {
     reject(new Error('Browsers are not supported at this time...'));
   });

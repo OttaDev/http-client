@@ -4,9 +4,19 @@ export namespace OttaHttpClientTypes {
     [key: string]: string;
   };
   export interface Request {
-    body?: any;
+    body?: unknown;
     headers?: Headers;
-    method: 'get' | 'GET' | 'post' | 'POST' | 'put' | 'PUT' | 'delete' | 'DELETE' | 'patch' | 'PATCH';
+    method:
+      | 'get'
+      | 'GET'
+      | 'post'
+      | 'POST'
+      | 'put'
+      | 'PUT'
+      | 'delete'
+      | 'DELETE'
+      | 'patch'
+      | 'PATCH';
     url: string;
   }
   export interface RequestResponse extends Request {
@@ -15,10 +25,10 @@ export namespace OttaHttpClientTypes {
   export interface Response {
     response: {
       status: {
-        code: number,
-        message: string
-      },
-      body: any
+        code: number;
+        message: string;
+      };
+      body: unknown;
     };
     request: RequestResponse;
   }
@@ -33,4 +43,3 @@ export namespace OttaHttpClientTypes {
     history?: number;
   };
 }
-
